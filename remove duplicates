@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+    int a[6]={1,2,2,3,4,4};
+    for(int i=0;i<6;i++){
+        for(int j=i+1;j<6;j++){
+            if(a[i]==a[j]){
+                for(int k=j;k<5;k++)
+                    a[k]=a[k+1];
+                j--;
+            }
+        }
+    }
+    for(int i=0;i<6;i++)
+        printf("%d ", a[i]);
+}
