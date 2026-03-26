@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Function to generate a random number between min and max (inclusive)
+int generateRandom(int min, int max) {
+    return rand() % (max - min + 1) + min;
+}
+
+int main() {
+    int lower, upper, randomNumber;
+
+    // Input lower and upper bounds
+    printf("Enter the lower bound: ");
+    scanf("%d", &lower);
+
+    printf("Enter the upper bound: ");
+    scanf("%d", &upper);
+
+    if (lower > upper) {
+        printf("Invalid range. Lower bound must be <= upper bound.\n");
+        return 0;
+    }
+
+    // Seed the random number generator
+    srand(time(NULL));
+
+    // Generate random number
+    randomNumber = generateRandom(lower, upper);
+
+    printf("Random number between %d and %d is %d\n", lower, upper, randomNumber);
+
+    return 0;
+}
