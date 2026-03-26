@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// Function to check palindrome
+int isPalindrome(char str[]) {
+    int i = 0;
+    int j = strlen(str) - 1;
+
+    // Remove newline character if present
+    if (str[j] == '\n') {
+        str[j] = '\0';
+        j--;
+    }
+
+    while (i < j) {
+        // Compare characters ignoring case
+        if (tolower(str[i]) != tolower(str[j])) {
+            return 0;  // Not a palindrome
+        }
+        i++;
+        j--;
+    }
+    return 1;  // Palindrome
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    if (isPalindrome(str))
+        printf("The string is a palindrome.\n");
+    else
+        printf("The string is not a palindrome.\n");
+
+    return 0;
+}
